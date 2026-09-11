@@ -2,23 +2,11 @@ name: Terraform Azure Storage
 
 on:
   workflow_dispatch:
-    inputs:
-      student:
-        description: "Your student folder name (e.g. stu1)"
-        required: true
-        type: choice
-        options:
-          - stu1
-          - stu2
-          - stu3
-          - stu4
 
 jobs:
   terraform:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: students/${{ github.event.inputs.student }}
+  
     env:
       ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
       ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
